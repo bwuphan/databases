@@ -17,9 +17,16 @@ app.set('port', 3000);
 // Logging and parsing
 app.use(morgan('dev'));
 app.use(parser.json());
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type, Authorization');
+    next();
+});
 
 // Set up our routes
 app.use('/classes', router);
+app.use('/messages', router);
 
 // Serve the client files
 app.use(express.static(__dirname + '/../client'));
