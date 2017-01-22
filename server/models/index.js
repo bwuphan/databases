@@ -49,6 +49,7 @@ module.exports = {
       })
     }, // a function which produces all the messages
     post: function (request, callback) {
+      console.log(request)
       // a function which can be used to insert a message into the database
 
       //get request body info...username, messages, roomname

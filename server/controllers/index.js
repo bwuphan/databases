@@ -11,8 +11,6 @@ module.exports = {
   messages: {
     get: function (req, res) {
       models.messages.get(function(data) {
-        console.log('helloooo')
-        console.log(data);
         res.json(data)
       });
         // res.send("Hello World");
